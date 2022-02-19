@@ -101,23 +101,11 @@ function MyApp({ Component, pageProps, props }) {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
+        {pages.map((page) => (
+          <ListItem button key={page.id}>
+            <Link href={page.route} passHref>
+              <ListItemText primary={page.page_name} />
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -131,14 +119,19 @@ function MyApp({ Component, pageProps, props }) {
         <AppBar>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                LOGO
-              </Typography>
+              <Link href="/" passHref>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  sx={{
+                    mr: 2,
+                    display: { xs: "none", md: "flex", cursor: "pointer" },
+                  }}
+                >
+                  LOGO
+                </Typography>
+              </Link>
 
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
@@ -164,9 +157,10 @@ function MyApp({ Component, pageProps, props }) {
                 <Link href="/blogcms" passHref>
                   <Button
                     onClick={handleCloseNavMenu}
+                    title="write some blog"
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
-                    BlogCMS
+                    Blog CMS
                   </Button>
                 </Link>
               </Box>
@@ -196,7 +190,7 @@ function MyApp({ Component, pageProps, props }) {
       <Toolbar />
       <Container>
         <Box sx={{ my: 2 }}>
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
         </Box>
       </Container>
     </>
