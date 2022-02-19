@@ -1,0 +1,71 @@
+.whiteColorStyle {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px #e7edff;
+  border-radius: 10px;
+  margin-bottom: 2vh;
+  padding: 1vh 1.3vw;
+}
+/*********************
+file upload related css
+ *********************/
+.fileContainer {
+  display: flex;
+  align-items: center;
+}
+.uploadBox {
+  background-color: #f4fbff;
+  width: 100%;
+  border: 1px solid rgba(0, 138, 217, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+}
+.imageUploadBox {
+  position: relative;
+  border: 2px dashed #008ad9;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.imageUploadBox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+.textAboutUpload {
+  text-align: center;
+  padding: 10px;
+}
+
+#optionPlaceholder {
+  color: #e5e5e5 !important;
+}
+.imageContianer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.imageContianer img {
+  transition: 0.3s;
+}
+.cancelIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.7rem;
+  margin-top: -10px;
+  margin-right: -10px;
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.imageContianer:hover .cancelIcon {
+  opacity: 1;
+}
+.imageContianer:hover img {
+  opacity: 0.9;
+}
